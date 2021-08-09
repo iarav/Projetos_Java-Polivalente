@@ -1,0 +1,26 @@
+CREATE DATABASE Caixa_de_Mercado;
+
+CREATE TABLE Produto(
+CodProduto VARCHAR(13) NOT NULL,
+Descricao VARCHAR(50),
+PrecoVenda DECIMAL(6,2),
+PRIMARY KEY(CodProduto)
+)
+
+CREATE TABLE Venda(
+CodVenda INT NOT NULL AUTO_INCREMENT,
+Data DATE,
+ValorTotal DECIMAL(6,2),
+PRIMARY KEY(CodVenda) 
+)
+
+CREATE TABLE VendaItens(
+CodVendaItem INT NOT NULL AUTO_INCREMENT,
+CodVenda INT NOT NULL,
+CodProduto VARCHAR(13) NOT NULL,
+Quantidade INT,
+ValorUnitario DECIMAL(5,2),
+PRIMARY KEY(CodVendaItem),
+FOREIGN KEY(CodVenda) REFERENCES Venda (CodVenda),
+FOREIGN KEY(CodProduto) REFERENCES Produto (CodProduto)
+)

@@ -1,0 +1,23 @@
+create database Agenda;
+create table Estado(
+CodEstado int not null auto_increment,
+Nome varchar (20),
+primary key(CodEstado)
+);
+create table Cidade(
+CodCidade int not null auto_increment,
+Nome varchar (20),
+CodEstado int not null,
+primary key (CodCidade),
+foreign key (CodEstado) references Estado (CodEstado)
+);
+create table Pessoa(
+CodPessoa int not null auto_increment,
+Nome varchar (20),
+Fone varchar(10),
+CodCidade int not null,
+CodEstado int not null,
+primary key (CodPessoa),
+foreign key (CodCidade) references Cidade (CodCidade),
+foreign key(CodEstado) references Estado (CodEstado)
+);

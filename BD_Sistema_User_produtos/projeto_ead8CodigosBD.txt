@@ -1,0 +1,30 @@
+CREATE DATABASE projeto_ead8;
+
+CREATE TABLE cliente(
+CodCliente INT NOT NULL AUTO_INCREMENT,
+Nome VARCHAR(50) NOT NULL,
+Endereco VARCHAR(100),
+CPF VARCHAR(14),
+RG VARCHAR(12),
+Telefone VARCHAR(14),
+Email VARCHAR(50),
+Sexo VARCHAR(1),
+PRIMARY KEY(CodCliente)
+)
+
+CREATE TABLE produto(
+CodProduto INT NOT NULL AUTO_INCREMENT,
+Descricao VARCHAR(50),
+Unidade VARCHAR(2),
+Saldo INT,
+VrCompra DECIMAL(6,2),
+VrVenda DECIMAL(6,2),
+PRIMARY KEY(CodProduto)
+)
+
+CREATE TABLE usuario(
+CodUsuario INT NOT NULL AUTO_INCREMENT,
+Nome VARCHAR(50),
+Senha VARCHAR(20),
+PRIMARY KEY(CodUsuario)
+)

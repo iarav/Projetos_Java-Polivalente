@@ -1,0 +1,21 @@
+CREATE DATABASE controle_de_estoque;
+
+CREATE TABLE Produto (
+CodProduto VARCHAR(13) NOT NULL,
+Descricao VARCHAR(50),
+Unidade VARCHAR(2),
+Saldo INT,
+VrCompra DECIMAL(6,2),
+VrVenda DECIMAL(6,2),
+PRIMARY KEY(CodProduto)
+);
+
+CREATE TABLE Movimento(
+CodMovi INT NOT NULL AUTO_INCREMENT,
+CodProduto VARCHAR(13),
+Operacao VARCHAR(1),
+Qtde INT,
+Data DATE,
+PRIMARY KEY(CodMovi),
+FOREIGN KEY(CodProduto) REFERENCES Produto(CodProduto) 
+);
